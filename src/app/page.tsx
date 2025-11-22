@@ -40,7 +40,7 @@ export default function HomePage() {
         <div className="flex-1 flex flex-col">
           <Header />
 
-          <div className="pt-10 pb-10 px-6 md:px-20 md:pt-6">
+          <div className="pt-10 pb-20 px-6 md:px-20 md:pt-6">
             <ChatContainer />
           </div><Footer/>
         </div>
