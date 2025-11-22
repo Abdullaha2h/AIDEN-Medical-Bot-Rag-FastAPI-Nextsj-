@@ -19,7 +19,7 @@ export async function POST(req: Request) {
     console.error("FastAPI connection error:", error);
 
     return NextResponse.json(
-      { reply: "❌ Backend not reachable. Make sure FastAPI is running." },
+      { reply: "❌ Server not reachable. Try again in some time." },
       { status: 500 }
     );
   }
