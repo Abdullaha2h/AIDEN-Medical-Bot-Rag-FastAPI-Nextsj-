@@ -1,36 +1,156 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🩺 AIDEN Medical Chatbot – Frontend (React + Vite + Tailwind + Shadcn/UI)
 
-## Getting Started
+This is the **frontend** for the AIDEN Medical Assistant — an AI-powered medical chatbot that uses RAG (Retrieval-Augmented Generation) with a Python backend.
 
-First, run the development server:
+🔗 **Backend Repository:**  
+https://github.com/Abdullaha2h/AIDEN-Medical-Bot-Backend-Python-
+
+---
+
+## 🚀 Tech Stack (Frontend)
+
+- **React + Vite**
+- **TypeScript**
+- **Tailwind CSS**
+- **Shadcn/UI** components
+- **Lucide React Icons**
+- **Dark / Light mode** with Theme Provider
+- **Responsive UI**
+
+---
+
+## 📁 Folder Structure
+
+```md
+frontend/
+├── public/
+│   └── face.png
+│
+├── src/
+│   ├── components/
+│   │   ├── ChatBubble.tsx
+│   │   ├── MessageInput.tsx
+│   │   ├── Navbar.tsx
+│   │   ├── ThemeToggle.tsx
+│   │   └── ui/        ← shadcn UI components folder
+│   │
+│   │
+│   ├── pages/
+│   │   └── Home.tsx
+│   │
+│   │
+│   ├── styles/
+│   │   └── globals.css
+│   │
+│   ├── App.tsx
+│   └── main.tsx
+│
+├── index.html
+├── tailwind.config.js
+├── vite.config.ts
+└── package.json
+```
+
+---
+
+## 🔧 Installation & Setup
+
+### 1️⃣ Clone the repo
+
+```bash
+git clone https://github.com/Abdullaha2h/AIDEN-Medical-Bot-Rag-FastAPI-Nextsj-
+cd AIDEN-Medical-Bot-Frontend
+```
+
+### 2️⃣ Install dependencies
+
+```bash
+npm install
+```
+
+### 4️⃣ Run locally
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🎨 Features
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### ✔ Modern & Clean UI  
+Built with **shadcn/ui** — smooth buttons, cards, animations.
 
-## Learn More
+### ✔ Dark / Light Mode  
+Using shadcn `<ThemeProvider>` with system theme support.
 
-To learn more about Next.js, take a look at the following resources:
+### ✔ Chat Interface  
+- User/AI bubbles  
+- Loading indicator  
+- Scroll management  
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### ✔ API Integration  
+Connected to Python FastAPI backend.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 📡 How API Call Works
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```ts
+const response = await axios.post(
+  import.meta.env.VITE_API_URL,
+  { message }
+);
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 📦 Deploying on Vercel
+
+### 1️⃣ Build Command
+
+```bash
+npm run build
+```
+
+### 2️⃣ Output Directory
+
+```
+dist
+```
+
+## 🤝 Backend Repo Again (for connection)
+
+https://github.com/Abdullaha2h/AIDEN-Medical-Bot-Backend-Python-
+
+---
+
+## 🛠 Troubleshooting
+
+### ❗ CORS error  
+Make sure backend FastAPI has:
+
+```py
+allow_origins=["*"]
+```
+
+### ❗ ENV not loading  
+Restart Vite server after editing `.env`.
+
+### ❗ Dark mode not switching  
+Ensure your layout wraps with:
+
+```tsx
+<ThemeProvider defaultTheme="system" storageKey="aiden-theme">
+  <App />
+</ThemeProvider>
+```
+
+---
+
+## 🧑‍⚕️ AIDEN Medical Chatbot  
+Designed to provide quick medical guidance with AI-powered RAG search.  
+This repository contains only the **frontend UI**.
+
+---
+
