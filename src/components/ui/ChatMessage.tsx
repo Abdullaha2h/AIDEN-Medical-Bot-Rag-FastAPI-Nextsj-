@@ -7,7 +7,7 @@ export default function ChatMessage({ role, content }: any) {
   const isUser = role === "user";
 
   return (
-    <div className={`flex gap-3 fade-in ${isUser ? "justify-end" : ""}`}>
+    <div className={`flex gap-3 items-center fade-in ${isUser ? "justify-end" : ""}`}>
       {!isUser && (
         <img
           src="/face.png"
