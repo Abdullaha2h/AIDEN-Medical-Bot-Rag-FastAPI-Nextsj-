@@ -1,4 +1,4 @@
-# 🩺 AIDEN Medical Chatbot – Frontend (React + Vite + Tailwind + Shadcn/UI)
+# 🩺 AIDEN Medical Chatbot – Nextjs (FastAPI + RAG + OpenAI)
 
 This is the **frontend** for the AIDEN Medical Assistant — an AI-powered medical chatbot that uses RAG (Retrieval-Augmented Generation) with a Python backend.
 
@@ -9,7 +9,7 @@ https://github.com/Abdullaha2h/AIDEN-Medical-Bot-Backend-Python-
 
 ## 🚀 Tech Stack (Frontend)
 
-- **React + Vite**
+- **React**
 - **TypeScript**
 - **Tailwind CSS**
 - **Shadcn/UI** components
@@ -47,7 +47,6 @@ frontend/
 │
 ├── index.html
 ├── tailwind.config.js
-├── vite.config.ts
 └── package.json
 ```
 
@@ -94,17 +93,6 @@ Connected to Python FastAPI backend.
 
 ---
 
-## 📡 How API Call Works
-
-```ts
-const response = await axios.post(
-  import.meta.env.VITE_API_URL,
-  { message }
-);
-```
-
----
-
 ## 📦 Deploying on Vercel
 
 ### 1️⃣ Build Command
@@ -134,8 +122,6 @@ Make sure backend FastAPI has:
 allow_origins=["*"]
 ```
 
-### ❗ ENV not loading  
-Restart Vite server after editing `.env`.
 
 ### ❗ Dark mode not switching  
 Ensure your layout wraps with:
