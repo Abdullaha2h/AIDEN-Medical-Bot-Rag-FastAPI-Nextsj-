@@ -6,26 +6,41 @@ import Footer from "@/components/ui/Footer";
 
 export default function HomePage() {
   return (
-    <main className="relative min-h-screen flex justify-center">
+    <main className="relative h-screen overflow-hidden flex justify-center">
       {/* FloatingLines as background - covers entire screen */}
-      <div className="fixed inset-0 -z-10">
-        <FloatingLines 
-          enabledWaves={['top', 'middle', 'bottom']}
-          lineCount={[10, 15, 20]}
-          lineDistance={[8, 6, 4]}
-          bendRadius={5.0}
-          bendStrength={-0.5}
-          interactive={true}
-          parallax={true}
-        />
-      </div>
+      
+         <div className="md:hidden fixed inset-0 -z-10">
+          <FloatingLines 
+            enabledWaves={['middle']}
+            lineCount={[15, 30, 1]}
+            lineDistance={[8, 6, 4]}
+            bendRadius={5.0}
+            bendStrength={-0.5}
+            interactive={true}
+            parallax={true}
+          />
+        </div>
+        
+        {/* Desktop version - hidden on mobile */}
+        <div className="hidden md:block fixed inset-0 -z-10">
+          <FloatingLines 
+            enabledWaves={['top', 'middle', 'bottom']}
+            lineCount={[10, 15, 20]}
+            lineDistance={[8, 6, 4]}
+            bendRadius={5.0}
+            bendStrength={-0.5}
+            interactive={true}
+            parallax={true}
+          />
+        </div>
+     
 
       {/* Your main content */}
       <div className="relative flex min-h-screen max-w-full w-full mx-auto z-10">
         <div className="flex-1 flex flex-col">
           <Header />
 
-          <div className="pt-20 px-6 md:px-20 md:pt-6">
+          <div className="pt-10 pb-10 px-6 md:px-20 md:pt-6">
             <ChatContainer />
           </div><Footer/>
         </div>
