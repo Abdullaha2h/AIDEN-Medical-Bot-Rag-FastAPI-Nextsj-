@@ -7,12 +7,12 @@ export default function ChatMessage({ role, content }: any) {
   const isUser = role === "user";
 
   return (
-    <div className={`flex gap-3 items-center fade-in ${isUser ? "justify-end" : ""}`}>
+    <div className={`flex gap-3  fade-in ${isUser ? "justify-end" : ""}`}>
       {!isUser && (
         <img
           src="/face.png"
           alt="Medical Illustration"
-          className="h-8 opacity-80 hidden md:block"
+          className="h-8 opacity-80 hidden md:block mt-2"
         />
       )}
 
@@ -25,8 +25,8 @@ export default function ChatMessage({ role, content }: any) {
       >
         {/* Render Markdown */}
         <div className="prose prose-sm md:prose-base dark:prose-invert text-zinc-800 dark:text-zinc-200">
-          <ReactMarkdown>{content}</ReactMarkdown>
-        </div>
+  <ReactMarkdown>{content}</ReactMarkdown>
+</div>
       </div>
 
       {isUser && (

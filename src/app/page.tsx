@@ -6,7 +6,7 @@ import Footer from "@/components/ui/Footer";
 
 export default function HomePage() {
   return (
-    <main className="relative h-screen overflow-hidden flex justify-center">
+    <main className="relative h-screen m-auto overflow-hidden flex justify-center">
       {/* FloatingLines as background - covers entire screen */}
       
          <div className="md:hidden fixed inset-0 -z-10">

@@ -4,7 +4,7 @@ export async function POST(req: Request) {
   const body = await req.json();
 
   try {
-    const response = await fetch("http://127.0.0.1:8000/chat", {
+    const response = await fetch("https://aiden-medical-bot-backend-python.onrender.com/chat", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
