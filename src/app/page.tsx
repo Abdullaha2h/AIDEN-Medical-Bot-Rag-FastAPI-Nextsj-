@@ -3,21 +3,23 @@ import Header from "@/components/ui/Header";
 import FloatingDoctor from "@/components/ui/FloatingDoctor";
 import FloatingLines from "@/components/ui/FloatingLines";
 import Footer from "@/components/ui/Footer";
-import Image from "next/image";
+
 export default function HomePage() {
   return (
     <main className="relative h-screen m-auto overflow-hidden flex justify-center">
       {/* FloatingLines as background - covers entire screen */}
       
-      <div className="md:hidden fixed inset-0 -z-10">
-  <Image
-    src="/bg.png"
-    alt="Background"
-    fill
-    style={{ objectFit: "cover" }}
-    priority
-  />
-</div>
+         <div className="md:hidden fixed inset-0 -z-10">
+          <FloatingLines 
+            enabledWaves={['middle']}
+            lineCount={[5, 30, 1]}
+            lineDistance={[8, 6, 4]}
+            bendRadius={5.0}
+            bendStrength={-0.5}
+            interactive={true}
+            parallax={true}
+          />
+        </div>
         
         {/* Desktop version - hidden on mobile */}
         <div className="hidden md:block fixed inset-0 -z-10">
