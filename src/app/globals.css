@@ -16,7 +16,7 @@
   list-style: decimal;
   padding-left: 1.25rem;
 }
- 
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
