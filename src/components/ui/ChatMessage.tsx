@@ -7,7 +7,7 @@ export default function ChatMessage({ role, content }: any) {
   const isUser = role === "user";
 
   return (
-    <div className={`flex gap-3  fade-in ${isUser ? "justify-end" : ""}`}>
+    <div className={`flex gap-3 fade-in ${isUser ? "justify-end" : ""}`}>
       {!isUser && (
         <img
           src="/face.png"
@@ -17,20 +17,19 @@ export default function ChatMessage({ role, content }: any) {
       )}
 
       <div
-        className={`chat-bubble  shadow p-2 ${
+        className={`chat-bubble shadow p-2 rounded-xl ${
           isUser
             ? "bg-primary text-primary-foreground"
-            : "bg-muted text-muted-foreground"
+            : "bg-muted text-foreground"
         }`}
       >
-        {/* Render Markdown */}
-        <div className="prose prose-sm md:prose-base dark:prose-invert text-zinc-800 dark:text-zinc-200">
-  <ReactMarkdown>{content}</ReactMarkdown>
-</div>
+        <div className="prose prose-sm md:prose-base dark:prose-invert max-w-none">
+          <ReactMarkdown>{content}</ReactMarkdown>
+        </div>
       </div>
 
       {isUser && (
-        <Avatar>
+        <Avatar className="hidden md:block">
           <AvatarFallback>U</AvatarFallback>
         </Avatar>
       )}
