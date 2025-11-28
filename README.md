@@ -1,5 +1,8 @@
 # 🩺 AIDEN Medical Chatbot – Nextjs (FastAPI + RAG + OpenAI)
 
+🔗 **Live Preview:**  
+https://aidenpro.vercel.app/
+
 This is the **frontend** for the AIDEN Medical Assistant — an AI-powered medical chatbot that uses RAG (Retrieval-Augmented Generation) with a Python backend.
 
 🔗 **Backend Repository:**  
@@ -16,6 +19,18 @@ https://github.com/Abdullaha2h/AIDEN-Medical-Bot-Backend-Python-
 - **Lucide React Icons**
 - **Dark / Light mode** with Theme Provider
 - **Responsive UI**
+
+---
+
+## 🚀 Tech Stack (Backend)
+
+- **FastAPI** (Python backend)
+- **RAG pipeline** (Retrieval-Augmented Generation)
+- **OpenAI / Groq LLM as backup**
+- **Hugging face and faiss for embeddings**
+- **Next.js frontend** with chat UI
+- **Markdown-rendered responses**
+- **Pinecone** to save memory on deployment
 
 ---
 
