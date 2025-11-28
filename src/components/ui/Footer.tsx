@@ -3,16 +3,16 @@ import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
 
 export default function Footer() {
   return (
-    <footer className="fixed bottom-0 md:right-18 right-4 backdrop-blur-md z-50">
+    <footer className="fixed md:bottom-0 bottom-1/6 md:right-18 right-0 backdrop-blur-md z-50">
       <div className="flex items-center bg-background/70 border px-4 py-2 shadow-lg">
-        <p className="text-sm dark:text-white text-zinc-800 ">
+        <p className="text-sm dark:text-white text-zinc-800 md:block hidden">
           Created by Abdullah |
         </p>
         <a
           href="https://www.linkedin.com/in/muhammad-abdullah-08879822a/"
           target="_blank"
           rel="noopener noreferrer"
-          className="group relative transition-all px-1 duration-300"
+          className="group relative transition-all md:px-1 px-0 duration-300"
         >
           {/* Glow effect - background only */}
           <div className="absolute inset-0 rounded-full  bg-primary/20 group-hover:bg-primary/40 blur-md group-hover:blur-lg transition-all duration-300 scale-0 group-hover:scale-100"></div>
