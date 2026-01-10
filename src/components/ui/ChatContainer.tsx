@@ -142,20 +142,7 @@ export default function ChatContainer() {
   return (
     <div className="max-w-3xl mx-auto h-full flex flex-col rounded-2xl border bg-background/60 backdrop-blur-xl shadow-xl overflow-hidden relative">
 
-      {/* API Status Disclaimer */}
-      <div className="bg-primary/0 border-b border-primary/10 p-3 flex items-center gap-3 backdrop-blur-md">
-        <div className="p-2 bg-primary/10 rounded-full">
-          <Ambulance className="w-4 h-4 text-primary" />
-        </div>
-        <div className="flex-1">
-          <p className="text-xs md:text-sm font-medium text-primary">
-            <span className="font-bold">Notice:</span> OpenAI API is currently experiencing downtime.
-          </p>
-          <p className="text-[10px] md:text-xs text-muted-foreground/80">
-            We have temporarily switched to Groq for continued service. Responses may vary in quality.
-          </p>
-        </div>
-      </div>
+
 
       <div ref={scrollRef} className="flex-1 overflow-y-auto p-4 md:p-6 space-y-4 scroll-smooth">
         {/* Welcome & Buttons */}

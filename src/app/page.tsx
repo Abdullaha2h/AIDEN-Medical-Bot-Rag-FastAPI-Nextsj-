@@ -3,6 +3,7 @@ import Header from "@/components/ui/Header";
 import FloatingDoctor from "@/components/ui/FloatingDoctor";
 import FloatingLines from "@/components/ui/FloatingLines";
 import Footer from "@/components/ui/Footer";
+import ApiDisclaimer from "@/components/ui/ApiDisclaimer";
 
 export default function HomePage() {
   return (
@@ -38,10 +39,14 @@ export default function HomePage() {
         <Header />
 
         <div className="flex-1 w-full flex flex-col items-center justify-center p-4 md:p-6 overflow-hidden">
-          <div className="w-full max-w-4xl h-full">
-            <ChatContainer />
+          <div className="w-full max-w-4xl flex flex-col h-full">
+            <ApiDisclaimer />
+            <div className="flex-1 min-h-0 w-full">
+              <ChatContainer />
+            </div>
           </div>
         </div>
+
 
         <div className="hidden md:block">
           <Footer />
