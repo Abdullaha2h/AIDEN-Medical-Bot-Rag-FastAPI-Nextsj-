@@ -4,6 +4,8 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
+import { Send } from "lucide-react";
+
 export default function ChatInput({ onSend }: { onSend: (msg: string) => void }) {
   const [message, setMessage] = useState("");
 
@@ -22,7 +24,9 @@ export default function ChatInput({ onSend }: { onSend: (msg: string) => void })
         onChange={(e) => setMessage(e.target.value)}
         onKeyDown={(e) => e.key === "Enter" && send()}
       />
-      <Button onClick={send}>Send</Button>
+      <Button onClick={send} size="icon">
+        <Send className="w-5 h-5" />
+      </Button>
     </div>
   );
 }

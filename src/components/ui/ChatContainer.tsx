@@ -26,10 +26,34 @@ export default function ChatContainer() {
   const [showMoreOptions, setShowMoreOptions] = useState(false);
 
   const scrollRef = useRef<HTMLDivElement>(null);
+  const lastMessageRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (scrollRef.current) {
+    if (!scrollRef.current) return;
+
+    // If typing, scroll to bottom to show typing indicator
+    if (isTyping) {
       scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
+      return;
+    }
+
+    const lastMsg = messages[messages.length - 1];
+    if (!lastMsg) return;
+
+    if (lastMsg.role === "user") {
+      // User sent a message, scroll to bottom
+      scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
+    } else {
+      // Assistant replied. If it's a long message, we want to see the start.
+      // 'block: "start"' attempts to align the top of the element with the top of the container.
+      // If the message is short, it will just be visible.
+      // If it's long, this ensures the user starts reading from the top.
+      setTimeout(() => {
+        lastMessageRef.current?.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }, 100);
     }
   }, [messages, isTyping]);
 
@@ -194,7 +218,12 @@ export default function ChatContainer() {
         {/* Chat messages */}
         {conversationStarted &&
           messages.map((m, i) => (
-            <ChatMessage key={i} role={m.role as any} content={m.content} />
+            <div
+              key={i}
+              ref={i === messages.length - 1 ? lastMessageRef : null}
+            >
+              <ChatMessage role={m.role as any} content={m.content} />
+            </div>
           ))}
 
         {isTyping && <TypingIndicator />}
@@ -202,6 +231,8 @@ export default function ChatContainer() {
         {/* Invisible div to scroll to */}
         <div className="h-4" />
       </div>
+
+      <ChatInput onSend={(msg) => sendMessage(msg)} />
     </div>
   );
 }
