@@ -116,26 +116,44 @@ export default function ChatContainer() {
   ];
 
   return (
-    <div className="max-w-3xl  mx-auto h-[80vh] flex flex-col rounded-2xl border bg-background/60 backdrop-blur-xl shadow-xl">
-      <div ref={scrollRef} className="flex-1 overflow-y-auto p-6 space-y-4">
+    <div className="max-w-3xl mx-auto h-full flex flex-col rounded-2xl border bg-background/60 backdrop-blur-xl shadow-xl overflow-hidden relative">
+
+      {/* API Status Disclaimer */}
+      <div className="bg-primary/0 border-b border-primary/10 p-3 flex items-center gap-3 backdrop-blur-md">
+        <div className="p-2 bg-primary/10 rounded-full">
+          <Ambulance className="w-4 h-4 text-primary" />
+        </div>
+        <div className="flex-1">
+          <p className="text-xs md:text-sm font-medium text-primary">
+            <span className="font-bold">Notice:</span> OpenAI API is currently experiencing downtime.
+          </p>
+          <p className="text-[10px] md:text-xs text-muted-foreground/80">
+            We have temporarily switched to Groq for continued service. Responses may vary in quality.
+          </p>
+        </div>
+      </div>
+
+      <div ref={scrollRef} className="flex-1 overflow-y-auto p-4 md:p-6 space-y-4 scroll-smooth">
         {/* Welcome & Buttons */}
         {!conversationStarted && (
-          <div className="text-center mb-6 pt-20">
+          <div className="text-center mb-6 pt-10 md:pt-20">
             <h1 className="text-3xl font-bold text-foreground">Aiden</h1>
-            <p className="text-muted-foreground mt-1">
+            <p className="text-muted-foreground mt-1 px-4">
               How can I help you today?
             </p>
 
             {/* Main buttons */}
-            <div className="grid grid-cols-2 gap-3 mt-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-8 px-2">
               {mainButtons.map((btn, i) => (
                 <button
                   key={i}
                   onClick={() => sendMessage(btn.prompt, undefined, true)}
-                  className="flex items-center gap-2 px-3 py-2 text-sm rounded-xl border bg-card hover:bg-accent transition"
+                  className="flex items-center gap-3 px-4 py-3 text-sm rounded-xl border bg-card/50 hover:bg-primary/10 hover:border-primary/50 transition-all duration-200 group text-left shadow-sm hover:shadow-md"
                 >
-                  {btn.icon}
-                  <span>{btn.label}</span>
+                  <div className="p-2 rounded-lg bg-background group-hover:bg-primary/20 transition-colors">
+                    {btn.icon}
+                  </div>
+                  <span className="font-medium">{btn.label}</span>
                 </button>
               ))}
 
@@ -143,25 +161,29 @@ export default function ChatContainer() {
               {!showMoreOptions && optionalButtons.length > 0 && (
                 <button
                   onClick={() => setShowMoreOptions(true)}
-                  className="flex items-center gap-2 px-3 py-2 text-sm rounded-xl border bg-card hover:bg-accent transition"
+                  className="flex items-center gap-3 px-4 py-3 text-sm rounded-xl border bg-card/50 hover:bg-primary/10 hover:border-primary/50 transition-all duration-200 group text-left shadow-sm hover:shadow-md dashed border-dashed"
                 >
-                  <Plus className="w-5 h-5" />
-                  <span>More Options</span>
+                  <div className="p-2 rounded-lg bg-background group-hover:bg-primary/20 transition-colors">
+                    <Plus className="w-5 h-5" />
+                  </div>
+                  <span className="font-medium">More Options</span>
                 </button>
               )}
             </div>
 
             {/* Extra options */}
             {showMoreOptions && (
-              <div className="grid grid-cols-2 gap-3 mt-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-3 px-2">
                 {optionalButtons.map((btn, i) => (
                   <button
                     key={i}
                     onClick={() => sendMessage(btn.prompt, undefined, true)}
-                    className="flex items-center gap-2 px-3 py-2 text-sm rounded-xl border bg-card hover:bg-accent transition"
+                    className="flex items-center gap-3 px-4 py-3 text-sm rounded-xl border bg-card/50 hover:bg-primary/10 hover:border-primary/50 transition-all duration-200 group text-left shadow-sm hover:shadow-md"
                   >
-                    {btn.icon}
-                    <span>{btn.label}</span>
+                    <div className="p-2 rounded-lg bg-background group-hover:bg-primary/20 transition-colors">
+                      {btn.icon}
+                    </div>
+                    <span className="font-medium">{btn.label}</span>
                   </button>
                 ))}
               </div>
@@ -176,9 +198,10 @@ export default function ChatContainer() {
           ))}
 
         {isTyping && <TypingIndicator />}
-      </div>
 
-      <ChatInput onSend={(msg) => sendMessage(msg)} />
+        {/* Invisible div to scroll to */}
+        <div className="h-4" />
+      </div>
     </div>
   );
 }

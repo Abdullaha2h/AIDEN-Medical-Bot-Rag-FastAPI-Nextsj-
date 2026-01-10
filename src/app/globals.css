@@ -6,7 +6,6 @@
   margin-bottom: 0.5rem; /* Add spacing between paragraphs */
 }
 
-
 .prose ul {
   list-style: disc;
   padding-left: 1.25rem;
@@ -125,15 +124,20 @@
   --sidebar-ring: oklch(0.38 0.189 293.745);
 }
 
-
 /* Smooth fade animation */
 .fade-in {
   animation: fadeIn 0.35s ease forwards;
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(6px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* ChatGPT-style bubbles */
@@ -158,9 +162,15 @@
 }
 
 @keyframes blink {
-  0% { opacity: 0.2 }
-  20% { opacity: 1 }
-  100% { opacity: 0.2 }
+  0% {
+    opacity: 0.2;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.2;
+  }
 }
 
 @layer base {

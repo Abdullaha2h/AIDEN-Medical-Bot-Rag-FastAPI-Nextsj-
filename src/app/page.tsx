@@ -6,11 +6,11 @@ import Footer from "@/components/ui/Footer";
 
 export default function HomePage() {
   return (
-    <main className="relative h-screen m-auto overflow-hidden flex justify-center">
-      {/* FloatingLines as background - covers entire screen */}
-      
-         <div className="md:hidden fixed inset-0 -z-10">
-          <FloatingLines 
+    <main className="relative h-dvh w-full overflow-hidden flex flex-col bg-background text-foreground">
+      {/* Background FloatingLines */}
+      <div className="absolute inset-0 z-0">
+        <div className="md:hidden w-full h-full">
+          <FloatingLines
             enabledWaves={['middle']}
             lineCount={[5, 30, 1]}
             lineDistance={[8, 6, 4]}
@@ -20,10 +20,8 @@ export default function HomePage() {
             parallax={true}
           />
         </div>
-        
-        {/* Desktop version - hidden on mobile */}
-        <div className="hidden md:block fixed inset-0 -z-10">
-          <FloatingLines 
+        <div className="hidden md:block w-full h-full">
+          <FloatingLines
             enabledWaves={['top', 'middle', 'bottom']}
             lineCount={[10, 15, 20]}
             lineDistance={[8, 6, 4]}
@@ -33,21 +31,25 @@ export default function HomePage() {
             parallax={true}
           />
         </div>
-     
+      </div>
 
-      {/* Your main content */}
-      <div className="relative flex min-h-screen max-w-full w-full mx-auto z-10">
-        <div className="flex-1 flex flex-col">
-          <Header />
+      {/* Main Content Layout */}
+      <div className="relative z-10 flex flex-col h-full w-full max-w-[1920px] mx-auto">
+        <Header />
 
-          <div className="pt-10 pb-20 px-6 md:px-20 md:pt-6">
+        <div className="flex-1 w-full flex flex-col items-center justify-center p-4 md:p-6 overflow-hidden">
+          <div className="w-full max-w-4xl h-full">
             <ChatContainer />
-          </div><Footer/>
+          </div>
         </div>
 
-        <FloatingDoctor />
-        
+        <div className="hidden md:block">
+          <Footer />
+        </div>
       </div>
+
+      <FloatingDoctor />
+
     </main>
   );
 }
