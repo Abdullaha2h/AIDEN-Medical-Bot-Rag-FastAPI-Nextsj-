@@ -9,7 +9,7 @@ export default function ApiDisclaimer() {
     if (!showDisclaimer) return null;
 
     return (
-        <div className="w-full max-w-3xl mx-auto mb-4 p-0 rounded-4xl border bg-primary/5 border-primary/10 flex items-center justify-between gap-3 shadow-sm animate-in fade-in slide-in-from-top-2 backdrop-blur-md">
+        <div className="w-full max-w-3xl mx-auto mb-4 p-0 rounded-4xl border dark:bg-primary/5 bg-white dark:border-primary/10 flex items-center justify-between gap-3 shadow-sm animate-in fade-in slide-in-from-top-2 backdrop-blur-md">
             <div className="flex items-center gap-3 text-primary/90 text-xs md:text-sm">
                 <div className="p-2 bg-primary/10 rounded-full shrink-0">
                     <Ambulance className="w-4 h-4" />
