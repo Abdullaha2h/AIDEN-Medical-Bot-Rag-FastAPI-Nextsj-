@@ -48,7 +48,7 @@ export default function HomePage() {
         </div>
 
 
-        <div className="hidden md:block">
+        <div className="">
           <Footer />
         </div>
       </div>

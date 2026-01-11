@@ -154,17 +154,17 @@ export default function ChatContainer() {
             </p>
 
             {/* Main buttons */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-8 px-2">
+            <div className="grid grid-cols-2 gap-3 mt-8 px-2">
               {mainButtons.map((btn, i) => (
                 <button
                   key={i}
                   onClick={() => sendMessage(btn.prompt, undefined, true)}
-                  className="flex items-center gap-3 px-4 py-3 text-sm rounded-xl border bg-card/50 hover:bg-primary/10 hover:border-primary/50 transition-all duration-200 group text-left shadow-sm hover:shadow-md"
+                  className="flex items-center gap-2 md:gap-3 px-3 py-2 md:px-4 md:py-3 text-xs md:text-sm rounded-xl border bg-card/50 hover:bg-primary/10 hover:border-primary/50 transition-all duration-200 group text-left shadow-sm hover:shadow-md"
                 >
-                  <div className="p-2 rounded-lg bg-background group-hover:bg-primary/20 transition-colors">
+                  <div className="p-1.5 md:p-2 rounded-lg bg-background group-hover:bg-primary/20 transition-colors shrink-0">
                     {btn.icon}
                   </div>
-                  <span className="font-medium">{btn.label}</span>
+                  <span className="font-medium leading-tight">{btn.label}</span>
                 </button>
               ))}
 
@@ -172,29 +172,29 @@ export default function ChatContainer() {
               {!showMoreOptions && optionalButtons.length > 0 && (
                 <button
                   onClick={() => setShowMoreOptions(true)}
-                  className="flex items-center gap-3 px-4 py-3 text-sm rounded-xl border bg-card/50 hover:bg-primary/10 hover:border-primary/50 transition-all duration-200 group text-left shadow-sm hover:shadow-md dashed border-dashed"
+                  className="flex items-center gap-2 md:gap-3 px-3 py-2 md:px-4 md:py-3 text-xs md:text-sm rounded-xl border bg-card/50 hover:bg-primary/10 hover:border-primary/50 transition-all duration-200 group text-left shadow-sm hover:shadow-md dashed border-dashed"
                 >
-                  <div className="p-2 rounded-lg bg-background group-hover:bg-primary/20 transition-colors">
+                  <div className="p-1.5 md:p-2 rounded-lg bg-background group-hover:bg-primary/20 transition-colors shrink-0">
                     <Plus className="w-5 h-5" />
                   </div>
-                  <span className="font-medium">More Options</span>
+                  <span className="font-medium leading-tight">More Options</span>
                 </button>
               )}
             </div>
 
             {/* Extra options */}
             {showMoreOptions && (
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-3 px-2">
+              <div className="grid grid-cols-2 gap-3 mt-3 px-2">
                 {optionalButtons.map((btn, i) => (
                   <button
                     key={i}
                     onClick={() => sendMessage(btn.prompt, undefined, true)}
-                    className="flex items-center gap-3 px-4 py-3 text-sm rounded-xl border bg-card/50 hover:bg-primary/10 hover:border-primary/50 transition-all duration-200 group text-left shadow-sm hover:shadow-md"
+                    className="flex items-center gap-2 md:gap-3 px-3 py-2 md:px-4 md:py-3 text-xs md:text-sm rounded-xl border bg-card/50 hover:bg-primary/10 hover:border-primary/50 transition-all duration-200 group text-left shadow-sm hover:shadow-md"
                   >
-                    <div className="p-2 rounded-lg bg-background group-hover:bg-primary/20 transition-colors">
+                    <div className="p-1.5 md:p-2 rounded-lg bg-background group-hover:bg-primary/20 transition-colors shrink-0">
                       {btn.icon}
                     </div>
-                    <span className="font-medium">{btn.label}</span>
+                    <span className="font-medium leading-tight">{btn.label}</span>
                   </button>
                 ))}
               </div>

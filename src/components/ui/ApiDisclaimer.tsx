@@ -15,7 +15,7 @@ export default function ApiDisclaimer() {
                     <Ambulance className="w-4 h-4" />
                 </div>
                 <div>
-                    <span className="font-semibold inline">Notice:</span>{" "}
+                    <span className="font-bold inline">Notice:</span>{" "}
                     <span className="opacity-90">
                         Primary API down, backup API is running. Response quality may vary.
                     </span>
